@@ -5,3 +5,24 @@ var leapYear = function(year) {
     return false;
   }
 };
+
+
+$(document).ready(function() {
+  $("form#leap-year").submit(function(event) {
+    var year = parseInt($("input#year").val());
+    var result = leapYear(year);
+
+    $(".year").text(year);
+    if (!result) {
+      $(".not").text("not");
+    }
+
+    if (result) {
+      $(".not").text("very much");
+    }
+
+    $("#result").show();
+    event.preventDefault();
+
+  });
+});
